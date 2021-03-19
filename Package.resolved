@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FoundationEx",
+        "repositoryURL": "https://github.com/RocketLaunchpad/FoundationEx.git",
+        "state": {
+          "branch": null,
+          "revision": "1e29902f7c26fff9828c3f488a314786fc7756ff",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "Tagged",
+        "repositoryURL": "https://github.com/pointfreeco/swift-tagged.git",
+        "state": {
+          "branch": null,
+          "revision": "592e1eb4255c571ebffc29955011e352217501b4",
+          "version": "0.5.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
