@@ -15,7 +15,6 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "FoundationEx", url: "https://github.com/RocketLaunchpad/FoundationEx.git", from: "1.0.0")
-
     ],
     targets: [
         .target(
