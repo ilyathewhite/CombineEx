@@ -5,9 +5,9 @@
         "package": "FoundationEx",
         "repositoryURL": "https://github.com/RocketLaunchpad/FoundationEx.git",
         "state": {
-          "branch": null,
-          "revision": "1e29902f7c26fff9828c3f488a314786fc7756ff",
-          "version": "1.0.0"
+          "branch": "main",
+          "revision": "76570c0269d7e8622435efce85b49b5132dbeb71",
+          "version": null
         }
       },
       {
