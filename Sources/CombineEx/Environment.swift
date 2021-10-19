@@ -15,7 +15,7 @@ public enum CombineEx {
     }
 
     private static func logError(_ error: Error) {
-        var errorDump = "FoundationEx Coding Error:\n"
+        var errorDump = "CombineEx Error:\n"
         dump(error, to: &errorDump)
         NSLog(errorDump)
     }
