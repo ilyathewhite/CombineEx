@@ -40,6 +40,7 @@ extension Publishers.SubscribeOn: SingleValuePublisher where Upstream: SingleVal
 extension Publishers.Share: SingleValuePublisher where Upstream: SingleValuePublisher {}
 extension Publishers.Zip: SingleValuePublisher where A: SingleValuePublisher, B: SingleValuePublisher {}
 extension Publishers.Zip3: SingleValuePublisher where A: SingleValuePublisher, B: SingleValuePublisher, C: SingleValuePublisher {}
+extension Publishers.Last: SingleValuePublisher {}
 
 public typealias AnySingleValuePublisher<Output, Failure> = AnyTaggedPublisher<Output, Failure, SingleValueTag> where Failure: Error
 public typealias AnySomeValuesPublisher<Output, Failure> = AnyTaggedPublisher<Output, Failure, SomeValuesTag> where Failure: Error
