@@ -21,9 +21,9 @@ extension ObservableValue: Identifiable where T: Identifiable {
     }
 }
 
-extension ObservableValue: Equatable where T: Identifiable {
-    public static func == (lhs: ObservableValue<T>, rhs: ObservableValue<T>) -> Bool {
-        lhs.id == rhs.id
+extension ObservableValue: Equatable {
+    public static func == (lhs: ObservableValue, rhs: ObservableValue) -> Bool {
+        lhs === rhs
     }
 }
 
