@@ -8,10 +8,22 @@
 import Combine
 
 public class ObservableValue<T>: ObservableObject {
-    @Published public var value: T
+    @Published public private(set) var value: T
 
     public init(_ value: T) {
         self.value = value
+    }
+
+    public func update(_ newValue: T) {
+        value = newValue
+    }
+}
+
+extension ObservableValue where T: Equatable {
+    public func maybeUpdate(_ newValue: T) {
+        if value != newValue {
+            value = newValue
+        }
     }
 }
 
