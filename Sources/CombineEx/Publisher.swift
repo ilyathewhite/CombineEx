@@ -101,6 +101,14 @@ public extension Publisher where Self: SingleValuePublisher {
     }
 }
 
+// MARK:- asResult
+
+public extension Publisher where Self: SingleValuePublisher{
+    func asResult() -> AnySingleValuePublisher<Result<Output, Failure>, Never> {
+        map {.success($0) }.replaceError { .failure($0) }.eraseType()
+    }
+}
+
 // MARK:- mapWithSideEffect
 
 public extension Publisher {
