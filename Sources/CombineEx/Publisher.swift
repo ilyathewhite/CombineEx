@@ -43,6 +43,7 @@ extension Publishers.Zip3: SingleValuePublisher where A: SingleValuePublisher, B
 extension Publishers.Last: SingleValuePublisher {}
 extension Publishers.RemoveDuplicates: SingleValuePublisher where Upstream: SingleValuePublisher {}
 extension Publishers.Filter: SingleValuePublisher where Upstream: SingleValuePublisher {}
+extension Publishers.FirstWhere: SingleValuePublisher {}
 
 public typealias AnySingleValuePublisher<Output, Failure> = AnyTaggedPublisher<Output, Failure, SingleValueTag> where Failure: Error
 public typealias AnySomeValuesPublisher<Output, Failure> = AnyTaggedPublisher<Output, Failure, SomeValuesTag> where Failure: Error
