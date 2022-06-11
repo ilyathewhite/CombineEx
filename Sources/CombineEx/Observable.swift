@@ -6,6 +6,7 @@
 //
 
 import Combine
+import FoundationEx
 
 public class ObservableValue<T>: ObservableObject {
     @Published public private(set) var value: T
@@ -27,10 +28,7 @@ extension ObservableValue where T: Equatable {
     }
 }
 
-extension ObservableValue: Identifiable where T: Identifiable {
-    public var id: T.ID {
-        value.id
-    }
+extension ObservableValue: IdentifiableAsSelf {
 }
 
 extension ObservableValue: Equatable {
