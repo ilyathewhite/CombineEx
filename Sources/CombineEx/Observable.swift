@@ -37,9 +37,9 @@ extension ObservableValue: Equatable {
     }
 }
 
-extension ObservableValue: Hashable where T: Identifiable {
+extension ObservableValue: Hashable {
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+        hasher.combine(address(of: self))
     }
 }
 
