@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import Tagged
 
 // MARK:- SingleValuePublisher
 
@@ -223,5 +224,53 @@ public enum Cancel: Error {
 public extension Publisher {
     func ignoreCancel() -> Publishers.ReplaceError<Self> where Output == Void, Failure == Cancel {
         replaceError(with: ())
+    }
+}
+
+public func publisher<T>(_ f: @escaping () async -> T) -> AnySingleValuePublisher<T, Never> {
+    LazyFuture { promise in
+        Task {
+            promise(.success(await f()))
+        }
+    }
+    .eraseType()
+}
+
+public func publisher<T>(_ f: @escaping () async throws -> T) -> AnySingleValuePublisher<T, Error> {
+    LazyFuture { promise in
+        Task {
+            do {
+                try promise(.success(await f()))
+            }
+            catch {
+                promise(.failure(error))
+            }
+        }
+    }
+    .eraseType()
+}
+
+public extension SingleValuePublisher {
+    func async() async throws -> Output {
+        try await withCheckedThrowingContinuation { continuation in
+            self.asResult()
+                .sideEffect {
+                    continuation.resume(with: $0)
+                }
+                .map { _ in }
+                .runAsSideEffect()
+        }
+    }
+}
+
+public extension SingleValuePublisher where Failure == Never {
+    func async() async -> Output {
+        await withCheckedContinuation { continuation in
+            self.sideEffect {
+                continuation.resume(returning: $0)
+            }
+            .map { _ in }
+            .runAsSideEffect()
+        }
     }
 }
