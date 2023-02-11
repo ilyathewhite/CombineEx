@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "FoundationEx",
-        "repositoryURL": "https://github.com/RocketLaunchpad/FoundationEx.git",
+        "repositoryURL": "https://github.com/ilyathewhite/FoundationEx.git",
         "state": {
           "branch": "main",
           "revision": "d395eef51dbefd251cd6532120817a85f256de45",
