@@ -14,7 +14,7 @@ let package = Package(
             targets: ["CombineEx"]),
     ],
     dependencies: [
-        .package(name: "FoundationEx", url: "https://github.com/ilyathewhite/FoundationEx.git", .branch("main"))
+        .package(url: "https://github.com/ilyathewhite/FoundationEx.git", .branch("main"))
     ],
     targets: [
         .target(
