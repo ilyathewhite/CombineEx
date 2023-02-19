@@ -227,7 +227,7 @@ public extension Publisher {
     }
 }
 
-public func publisher<T>(_ f: @escaping () async -> T) -> AnySingleValuePublisher<T, Never> {
+public func makePublisher<T>(_ f: @escaping () async -> T) -> AnySingleValuePublisher<T, Never> {
     LazyFuture { promise in
         Task {
             promise(.success(await f()))
@@ -236,7 +236,7 @@ public func publisher<T>(_ f: @escaping () async -> T) -> AnySingleValuePublishe
     .eraseType()
 }
 
-public func publisher<T>(_ f: @escaping () async throws -> T) -> AnySingleValuePublisher<T, Error> {
+public func makePublisher<T>(_ f: @escaping () async throws -> T) -> AnySingleValuePublisher<T, Error> {
     LazyFuture { promise in
         Task {
             do {
