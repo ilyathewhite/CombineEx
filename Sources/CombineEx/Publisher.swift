@@ -278,6 +278,7 @@ public extension SingleValuePublisher where Failure == Never {
 // MARK:- AsyncPublisher
 
 @available(iOS 15.0, *)
+@available(macOS 12.0, *)
 public extension AsyncPublisher {
     func get(callback: @escaping (Element) async -> Void) async {
         for await elem in self {
