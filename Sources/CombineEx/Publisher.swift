@@ -252,26 +252,11 @@ public func makePublisher<T>(_ f: @escaping () async throws -> T) -> AnySingleVa
 
 public extension SingleValuePublisher {
     func async() async throws -> Output {
-        try await withCheckedThrowingContinuation { continuation in
-            self.asResult()
-                .sideEffect {
-                    continuation.resume(with: $0)
-                }
-                .map { _ in }
-                .runAsSideEffect()
+        for try await value in values {
+            return value
         }
-    }
-}
-
-public extension SingleValuePublisher where Failure == Never {
-    func async() async -> Output {
-        await withCheckedContinuation { continuation in
-            self.sideEffect {
-                continuation.resume(returning: $0)
-            }
-            .map { _ in }
-            .runAsSideEffect()
-        }
+        
+        throw Cancel.cancel
     }
 }
 
