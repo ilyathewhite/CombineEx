@@ -270,4 +270,10 @@ public extension AsyncPublisher {
             await callback(elem)
         }
     }
+    
+    func get(callback: @escaping (Element) async throws -> Void) async throws {
+        for await elem in self {
+            try await callback(elem)
+        }
+    }
 }
