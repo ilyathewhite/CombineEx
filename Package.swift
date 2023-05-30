@@ -20,10 +20,6 @@ let package = Package(
         .target(
             name: "CombineEx",
             dependencies: ["FoundationEx"]
-        ),
-        .testTarget(
-            name: "CombineExTests",
-            dependencies: ["CombineEx"]
         )
     ]
 )

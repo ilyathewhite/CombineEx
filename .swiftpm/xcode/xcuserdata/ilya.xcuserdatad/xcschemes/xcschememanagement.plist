@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CombineEx.xcscheme_^#shared#^_</key>
+		<key>CombineEx-Package.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>CombineEx.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 		<key>Tagged (Playground) 1.xcscheme</key>
 		<dict>
@@ -33,11 +38,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>CombineEx</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>CombineExTests</key>
 		<dict>
 			<key>primary</key>
