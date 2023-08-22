@@ -23,6 +23,39 @@ public class ObservableValue<T>: ObservableObject {
     }
 }
 
+extension ObservableValue {
+    @MainActor
+    public func update(_ change: (inout T) -> Void) {
+        change(&self.value)
+    }
+    
+    @MainActor
+    public func update(_ change: (inout T) throws -> Void) rethrows {
+        try change(&self.value)
+    }
+}
+
+extension ObservableValue where T: Equatable {
+    @MainActor
+    public func update(_ change: (inout T) -> Void) {
+        var copy = value
+        change(&copy)
+        if copy != value {
+            value = copy
+        }
+    }
+    
+    @MainActor
+    public func update(_ change: (inout T) throws -> Void) rethrows {
+        var copy = value
+        try change(&copy)
+        if copy != value {
+            value = copy
+        }
+    }
+
+}
+
 extension ObservableValue where T: Equatable {
     @MainActor
     public func maybeUpdate(_ newValue: T) {
