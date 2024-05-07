@@ -86,3 +86,14 @@ extension ObservableValue {
         self.init(nil)
     }
 }
+
+extension ObservableValue: CustomCodeStringConvertible {
+    struct ObservableValueSnapshot {
+        let value: T
+    }
+    
+    @MainActor
+    public func codeStringDescription(offset: Int, indent: Int, maxValueWidth: Int) -> String {
+        codeString(ObservableValueSnapshot(value: value), offset: offset, indent: indent, maxValueWidth: maxValueWidth)
+    }
+}
