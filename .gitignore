@@ -1,3 +1,4 @@
 .swiftpm/xcode/package.xcworkspace/xcuserdata
 
 .build/
+.codex
